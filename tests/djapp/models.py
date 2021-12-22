@@ -61,14 +61,7 @@ class PointedModel(models.Model):
 
 class PointingModel(models.Model):
     foo = models.CharField(max_length=20)
-    pointed = models.OneToOneField(
-        PointedModel, related_name='pointer', null=True,
-        on_delete=models.CASCADE
-    )
-
-
-class WithDefaultValue(models.Model):
-    foo = models.CharField(max_length=20, default='')
+    pointed = models.OneToOneField(PointedModel, related_name='pointer', null=True, on_delete=models.CASCADE)
 
 
 WITHFILE_UPLOAD_TO = 'django'
